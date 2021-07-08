@@ -1,10 +1,12 @@
+require_relative 'item'
+
 class GildedRose
 
   def initialize(items)
     @items = items
   end 
 
-  def update_quality()
+  def update_quality
     @items.each do |item|
       # Lines 9 - 15: If item name isn't Aged Bried and isn't a backstage pass, and quality is higher than 0, and isn't Sulfaras, quality decreases by 1.
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
