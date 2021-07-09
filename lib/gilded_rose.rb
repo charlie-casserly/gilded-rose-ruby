@@ -1,15 +1,12 @@
-require_relative 'item'
-
 class GildedRose
 
   def initialize(items)
     @items = items
   end 
 
-  def update_quality
+  def update_quality()
     @items.each do |item|
-      # Lines 9 - 15: If item name isn't Aged Bried and isn't a backstage pass, and quality is higher than 0, and isn't Sulfaras, quality decreases by 1.
-      if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
+      if item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
           if item.name != "Sulfuras, Hand of Ragnaros"
             decrease_item_quality_by_1(item)
@@ -26,7 +23,7 @@ class GildedRose
             end
             if item.sell_in < 6
               if item.quality < 50
-                increase_item_quality_by_1(item)
+                increase_item_quality_by_2(item)
               end
             end
           end
@@ -63,5 +60,9 @@ class GildedRose
 
   def increase_item_quality_by_1(item)
     item.quality += 1
+  end
+
+  def increase_item_quality_by_2(item)
+    item.quality += 2
   end
 end
